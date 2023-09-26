@@ -57,6 +57,81 @@
 
 
 
+
+
 <div *ngFor="let item of searchResults">
-  {{ item }}
+  <div class="card text-dark mt-5 mb-5 text-center">
+    <div class="card-body" style="padding: 20px; background-color: #e5ecf26e; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
+      <div class="card-title">
+        <h6>{{ item.airline }}</h6>
+      </div>
+      <div class="card-title" style="color: #ff3939;">
+        {{ item.remainingNumberOfSeats }} remaining seats
+      </div>
+
+      <div class="d-grid text-center g-2">
+        <div class="row">
+          <div class="col">
+
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-departure" style="font-size: 20px;"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot"></i>
+              {{ item.departure.place }}
+            </div>
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{ item.departure.time | date }}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{ item.departure.time | date:'shortTime' }}
+            </div>
+
+
+
+          </div>
+          <div class="col">
+            <div style="display: flex;">
+              <i class="fa-solid fa-circle" style="margin-top: 50px; font-size: 9px;"></i>
+              <hr style="display: block; width: 100%; margin-top: 55px;" />
+              <i class="fas fa-plane" style="margin-top: 48px;"></i>
+            </div>
+
+            <i class="fas fa-usd">{{ item.price }}</i>
+            <br />
+            <a class="btn btn-secondary btn-lg mt-2">
+              <i class="fas fa-ticket"></i>
+              Book
+            </a>
+          </div>
+
+          <div class="col">
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-arrival" style="font-size: 20px;"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot"></i>
+              {{ item.arrival.place }}
+            </div>
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{ item.arrival.time | date }}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{ item.arrival.time | date:'shortTime' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
