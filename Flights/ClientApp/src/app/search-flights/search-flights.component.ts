@@ -15,7 +15,17 @@ export class SearchFlightsComponent implements OnInit {
   constructor(private flightService: FlightService) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+  }
+
+  search() {
+    this.flightService.searchFlight({})
+      .subscribe(res => this.searchResults = res,
+        this.handleError);
+  }
+
+  private handleError(err: any): void {
+    console.log(err);
   }
 
 }

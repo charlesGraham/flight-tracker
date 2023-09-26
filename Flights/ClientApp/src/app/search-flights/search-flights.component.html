@@ -1,4 +1,3 @@
-
 <h5 class="text-md-center m-5">Search for Flights</h5>
 
 
@@ -46,7 +45,7 @@
         <input class="form-control" type="number" placeholder="1" />
         <div class="input-group-text">Passengers</div>
 
-        <button type="submit" class="btn-primary btn">
+        <button (click)="search()" type="submit" class="btn-primary btn">
           <i class="fas fa-search"></i>
         </button>
       </div>
@@ -61,7 +60,8 @@
 
 <div *ngFor="let item of searchResults">
   <div class="card text-dark mt-5 mb-5 text-center">
-    <div class="card-body" style="padding: 20px; background-color: #e5ecf26e; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
+    <div class="card-body"
+      style="padding: 20px; background-color: #e5ecf26e; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
       <div class="card-title">
         <h6>{{ item.airline }}</h6>
       </div>
@@ -79,17 +79,17 @@
 
             <div class="col">
               <i class="fa-solid fa-location-dot"></i>
-              {{ item.departure.place }}
+              {{ item.departure?.place }}
             </div>
 
             <div class="col m-2">
               <i class="fa-regular"></i>
-              {{ item.departure.time | date }}
+              {{ item.departure?.time | date }}
             </div>
 
             <div class="col">
               <i class="fa-regular fa-clock"></i>
-              {{ item.departure.time | date:'shortTime' }}
+              {{ item.departure?.time | date:'shortTime' }}
             </div>
 
 
@@ -117,17 +117,17 @@
 
             <div class="col">
               <i class="fa-solid fa-location-dot"></i>
-              {{ item.arrival.place }}
+              {{ item.arrival?.place }}
             </div>
 
             <div class="col m-2">
               <i class="fa-regular"></i>
-              {{ item.arrival.time | date }}
+              {{ item.arrival?.time | date }}
             </div>
 
             <div class="col">
               <i class="fa-regular fa-clock"></i>
-              {{ item.arrival.time | date:'shortTime' }}
+              {{ item.arrival?.time | date:'shortTime' }}
             </div>
           </div>
         </div>
